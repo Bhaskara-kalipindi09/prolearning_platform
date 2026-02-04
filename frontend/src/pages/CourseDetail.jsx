@@ -12,7 +12,7 @@ export default function CourseDetail() {
     useEffect(() => {
         const fetchCourse = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/api/courses/${id}`);
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses/${id}`);
                 setCourse(data);
             } catch (error) {
                 console.error('Error fetching course', error);
@@ -32,7 +32,7 @@ export default function CourseDetail() {
                 return;
             }
             await axios.post(
-                'http://localhost:5000/api/enrollments',
+                `${import.meta.env.VITE_API_URL}/api/enrollments`,
                 { courseId: id },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

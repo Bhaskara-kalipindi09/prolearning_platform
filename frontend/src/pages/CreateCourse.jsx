@@ -23,7 +23,7 @@ export default function CreateCourse() {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:5000/api/courses', {
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/courses`, {
                 ...formData,
                 price: Number(formData.price),
                 lessons: [], // Empty lessons for now

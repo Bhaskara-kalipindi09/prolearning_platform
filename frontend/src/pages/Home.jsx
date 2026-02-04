@@ -8,7 +8,7 @@ export default function Home() {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/courses');
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
                 // Slice to show only first 3 courses
                 setCourses(data.slice(0, 3));
             } catch (error) {

@@ -11,7 +11,7 @@ export default function Dashboard() {
         const fetchEnrolledCourses = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const { data } = await axios.get('http://localhost:5000/api/enrollments/my-courses', {
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/enrollments/my-courses`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setCourses(data);
